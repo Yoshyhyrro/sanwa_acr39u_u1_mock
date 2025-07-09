@@ -1,0 +1,6 @@
+C:\Users\Public\document\sanwa_acr39u_u1_mock\obj\Debug\net8.0\ICCardReaderMock.csproj.AssemblyReference.cache
+C:\Users\Public\document\sanwa_acr39u_u1_mock\obj\Debug\net8.0\ICCardReaderMock.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Public\document\sanwa_acr39u_u1_mock\obj\Debug\net8.0\ICCardReaderMock.AssemblyInfoInputs.cache
+C:\Users\Public\document\sanwa_acr39u_u1_mock\obj\Debug\net8.0\ICCardReaderMock.AssemblyInfo.cs
+C:\Users\Public\document\sanwa_acr39u_u1_mock\obj\Debug\net8.0\ICCardReaderMock.csproj.CoreCompileInputs.cache
+C:\Users\Public\document\sanwa_acr39u_u1_mock\obj\Debug\net8.0\ICCardReaderMock.sourcelink.json

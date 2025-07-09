@@ -8,8 +8,8 @@ namespace ICCardReaderMock
     // ICカードの基本情報を表すクラス
     public class ICCardInfo
     {
-        public string CardId { get; set; }
-        public string CardType { get; set; }
+        public required string CardId { get; set; }
+        public required string CardType { get; set; }
         public DateTime IssueDate { get; set; }
         public DateTime ExpiryDate { get; set; }
         public Dictionary<string, string> Properties { get; set; } = new Dictionary<string, string>();
@@ -29,49 +29,48 @@ namespace ICCardReaderMock
     public class ICCardReaderMock
     {
         private ReaderStatus _status = ReaderStatus.NotConnected;
-        private ICCardInfo _currentCard = null;
+        private ICCardInfo? _currentCard = null;
         private readonly Dictionary<string, ICCardInfo> _mockCards;
 
-        public event EventHandler<ReaderStatusEventArgs> StatusChanged;
-        public event EventHandler<ICCardInfo> CardInserted;
-        public event EventHandler<ICCardInfo> CardRemoved;
+        public event EventHandler<ReaderStatusEventArgs>? StatusChanged;
+        public event EventHandler<ICCardInfo>? CardInserted;
+        public event EventHandler<ICCardInfo>? CardRemoved;
 
         public ICCardReaderMock()
         {
+            _mockCards = new Dictionary<string, ICCardInfo>();
             InitializeMockCards();
         }
 
         private void InitializeMockCards()
         {
-            _mockCards = new Dictionary<string, ICCardInfo>
+            _mockCards["CARD001"] = new ICCardInfo
             {
-                ["CARD001"] = new ICCardInfo
+                CardId = "CARD001",
+                CardType = "FeliCa",
+                IssueDate = DateTime.Now.AddYears(-2),
+                ExpiryDate = DateTime.Now.AddYears(8),
+                Properties = new Dictionary<string, string>
                 {
-                    CardId = "CARD001",
-                    CardType = "FeliCa",
-                    IssueDate = DateTime.Now.AddYears(-2),
-                    ExpiryDate = DateTime.Now.AddYears(8),
-                    Properties = new Dictionary<string, string>
-                    {
-                        ["Name"] = "山田太郎",
-                        ["Company"] = "サンプル会社",
-                        ["Department"] = "IT部門",
-                        ["EmployeeId"] = "EMP001"
-                    }
-                },
-                ["CARD002"] = new ICCardInfo
+                    ["Name"] = "山田太郎",
+                    ["Company"] = "サンプル会社",
+                    ["Department"] = "IT部門",
+                    ["EmployeeId"] = "EMP001"
+                }
+            };
+            
+            _mockCards["CARD002"] = new ICCardInfo
+            {
+                CardId = "CARD002",
+                CardType = "MIFARE",
+                IssueDate = DateTime.Now.AddYears(-1),
+                ExpiryDate = DateTime.Now.AddYears(4),
+                Properties = new Dictionary<string, string>
                 {
-                    CardId = "CARD002",
-                    CardType = "MIFARE",
-                    IssueDate = DateTime.Now.AddYears(-1),
-                    ExpiryDate = DateTime.Now.AddYears(4),
-                    Properties = new Dictionary<string, string>
-                    {
-                        ["Name"] = "佐藤花子",
-                        ["Company"] = "テスト株式会社",
-                        ["Department"] = "営業部",
-                        ["EmployeeId"] = "EMP002"
-                    }
+                    ["Name"] = "佐藤花子",
+                    ["Company"] = "テスト株式会社",
+                    ["Department"] = "営業部",
+                    ["EmployeeId"] = "EMP002"
                 }
             };
         }
@@ -136,7 +135,7 @@ namespace ICCardReaderMock
         // カード情報の読み取り
         public async Task<ICCardInfo> ReadCardAsync()
         {
-            if (_status != ReaderStatus.CardInserted)
+            if (_status != ReaderStatus.CardInserted || _currentCard == null)
                 throw new InvalidOperationException("カードが挿入されていません");
 
             await Task.Delay(200); // 読み取り処理のシミュレート
@@ -146,7 +145,7 @@ namespace ICCardReaderMock
         // カードへのデータ書き込み（シミュレート）
         public async Task<bool> WriteCardAsync(string key, string value)
         {
-            if (_status != ReaderStatus.CardInserted)
+            if (_status != ReaderStatus.CardInserted || _currentCard == null)
                 throw new InvalidOperationException("カードが挿入されていません");
 
             await Task.Delay(400); // 書き込み処理のシミュレート
@@ -169,7 +168,7 @@ namespace ICCardReaderMock
         // カードの認証をシミュレート
         public async Task<bool> AuthenticateAsync(string pin)
         {
-            if (_status != ReaderStatus.CardInserted)
+            if (_status != ReaderStatus.CardInserted || _currentCard == null)
                 throw new InvalidOperationException("カードが挿入されていません");
 
             await Task.Delay(800); // 認証処理のシミュレート
