@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyCopyrightAttribute("Copyright © 2025 Your Company")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d056c82e4e3b42017b2785e09db212bba87e66c2")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ef157103b0fc5cd22365cfb5fbef27d5ecab4deb")]
 [assembly: System.Reflection.AssemblyProductAttribute("IC Card Reader Mock")]
 [assembly: System.Reflection.AssemblyTitleAttribute("IC Card Reader Mock Library")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
