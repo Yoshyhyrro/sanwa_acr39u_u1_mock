@@ -9,7 +9,7 @@
       "ICCardReaderMock/1.0.0": {
         "dependencies": {
           "FluentAssertions": "8.4.0",
-          "Microsoft.CodeAnalysis.NetAnalyzers": "9.0.0",
+          "Microsoft.CodeAnalysis.NetAnalyzers": "8.0.0",
           "Microsoft.Extensions.Configuration": "9.0.7",
           "Microsoft.Extensions.Configuration.Json": "9.0.7",
           "Microsoft.Extensions.DependencyInjection": "9.0.7",
@@ -47,7 +47,7 @@
           }
         }
       },
-      "Microsoft.CodeAnalysis.NetAnalyzers/9.0.0": {},
+      "Microsoft.CodeAnalysis.NetAnalyzers/8.0.0": {},
       "Microsoft.CodeCoverage/17.14.1": {
         "runtime": {
           "lib/net8.0/Microsoft.VisualStudio.CodeCoverage.Shim.dll": {
@@ -697,12 +697,12 @@
       "path": "fluentassertions/8.4.0",
       "hashPath": "fluentassertions.8.4.0.nupkg.sha512"
     },
-    "Microsoft.CodeAnalysis.NetAnalyzers/9.0.0": {
+    "Microsoft.CodeAnalysis.NetAnalyzers/8.0.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-JajbvkrBgtdRghavIjcJuNHMOja4lqBmEezbhZyqWPYh2cpLhT5mPpfC7NQVDO4IehWQum9t/nwF4v+qQGtYWg==",
-      "path": "microsoft.codeanalysis.netanalyzers/9.0.0",
-      "hashPath": "microsoft.codeanalysis.netanalyzers.9.0.0.nupkg.sha512"
+      "sha512": "sha512-DxiTgkCl3CGq1rYmBX2wjY7XGbxiBdL4J+/AJIAFLKy5z70NxhnVRnPghnicXZ8oF6JKVXlW3xwznRbI3ioEKg==",
+      "path": "microsoft.codeanalysis.netanalyzers/8.0.0",
+      "hashPath": "microsoft.codeanalysis.netanalyzers.8.0.0.nupkg.sha512"
     },
     "Microsoft.CodeCoverage/17.14.1": {
       "type": "package",
